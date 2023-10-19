@@ -51,8 +51,8 @@ jobs:
         run: |
           echo "::set-output name=ecr_repository::$ECR_REGISTRY"
           echo "::set-output name=image_tag::$IMAGE_TAG"
-          docker build -t \$ECR_REGISTRY/\$ECR_REPOSITORY:\$IMAGE_TAG .
-          docker push \$ECR_REGISTRY/\$ECR_REPOSITORY:\$IMAGE_TAG
+          docker build -t ${{ steps.login-ecr.outputs.registry }}/mypeccy-web:${{ steps.image.outputs.version }} .
+          docker push ${{ steps.login-ecr.outputs.registry }}/mypeccy-web:${{ steps.image.outputs.version }}
 
       - name: Setup Kustomize
         uses: imranismail/setup-kustomize@v1
