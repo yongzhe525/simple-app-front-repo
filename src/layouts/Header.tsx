@@ -9,7 +9,7 @@ const Header = () => {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Peccy (Sample Service by ssupp@amazon.com)
+            Peccy (Sample Service by yongzher@amazon.com)
           </Typography>
         </Toolbar>
       </AppBar>
