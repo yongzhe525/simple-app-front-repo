@@ -15,13 +15,11 @@ jobs:
       - name: Check Node v
         run: node -v
 
-      - name: Build front
-        run: |
-          yarn add @mui/icons-material --network-timeout 500000
-          yarn install --frozen-lockfile
-          yarn build
-          apk add --update nodejs npm
-          npm install -g cra-envs@1.2.8
+      - name: Build and Push
+        uses: docker/buil-push-action@v2
+        with: 
+          context: .
+          file: ../../Dockerfile
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
