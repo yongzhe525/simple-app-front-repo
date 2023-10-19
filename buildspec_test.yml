@@ -1,0 +1,11 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Installing packages...
+      - yarn install --frozen-lockfile
+  build:
+    commands:
+      - echo Running unit test...
+      - CI=true yarn test
